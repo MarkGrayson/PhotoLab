@@ -206,6 +206,7 @@ public class Picture extends SimplePicture
   public void mirrorGulls()
   {
 	  int mirrorPoint = 351;
+	  int mirrorPoint2 = 210;
 	  Pixel leftPixel = null;
 	  Pixel rightPixel = null;
 	  int count = 0;
@@ -221,6 +222,20 @@ public class Picture extends SimplePicture
 	        leftPixel = pixels[row][col];      
 	        rightPixel = pixels[row]                       
 	                         [mirrorPoint - col + mirrorPoint];
+	        rightPixel.setColor(leftPixel.getColor());
+	      }
+	    }
+	    
+	    // loop through the rows
+	    for (int row = 223; row < 318; row++)
+	    {
+	      // loop from 13 to just before the mirror point
+	      for (int col = 223; col < mirrorPoint; col++)
+	      {
+	        
+	        leftPixel = pixels[row][col];      
+	        rightPixel = pixels[row]                       
+	                         [mirrorPoint2 - col + mirrorPoint2];
 	        rightPixel.setColor(leftPixel.getColor());
 	      }
 	    }
@@ -274,7 +289,7 @@ public class Picture extends SimplePicture
 	  
 	  for(int row = 0; row < pixels.length; row++)
 	  {
-		  for(int col = 0; col < pixels[0].length; col++)
+		  for(int col = 230; col < pixels[0].length; col++)
 		  {  
 			  if(row != col && row < pixels.length && col < pixels[0].length)
 			  {
