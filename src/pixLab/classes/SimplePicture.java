@@ -13,7 +13,7 @@ import java.awt.geom.*;
  * hold the pixels.  You can show a simple picture in a 
  * PictureFrame (a JFrame).  You can also explore a simple picture.
  * 
- * @author Barb Ericson ericson@cc.gatech.edu
+ * @author Mark Grayson Palesh
  */
 public class SimplePicture implements DigitalPicture
 {

@@ -50,9 +50,19 @@ public class IntArrayWorker
   public int getColTotal(int column)
   {
 	  
-	  int column 
+	  int colum = 0;
+	  
+	  for(int [] col : matrix)
+	  {
+		  for (int item : col)
+		  {
+			  
+		  }
+	  }
+	  
+	  return column;
   }
-  
+
   /**
    * Method to return the total 
    * @return the total of the values in the array

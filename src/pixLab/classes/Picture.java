@@ -12,7 +12,7 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
  * SimplePicture and allows the student to add functionality to
  * the Picture class.  
  * 
- * @author Barbara Ericson ericson@cc.gatech.edu
+ * @author Grayson Palesh
  */
 public class Picture extends SimplePicture 
 {
@@ -158,6 +158,26 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  
+  public void mirrorHorizontalTopToBottom()
+  {
+	  Pixel [] [] pixels = this.getPixels2D();
+	  Pixel bottomPixel = null;
+	  Pixel topPixel = null;
+	  int height = pixels[0].length;
+	  
+	  for (int row = pixels.length -1; row >= 0; row--)
+	  {
+		  for (int col = height / 2 -1; col >= 0; col --)
+		  {
+			  bottomPixel = pixels[row][col];
+			  topPixel = pixels[row][height - col - 1];
+			  bottomPixel.setColor(topPixel.getColor());
+			  
+		  }
+	  }
+  }
+  
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
@@ -181,6 +201,115 @@ public class Picture extends SimplePicture
       }
     }
   }
+  
+  //Mirror for Gulls
+  public void mirrorGulls()
+  {
+	  int mirrorPoint = 351;
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  int count = 0;
+	  Pixel[][] pixels = this.getPixels2D();
+	  
+	  // loop through the rows
+	    for (int row = 223; row < 318; row++)
+	    {
+	      // loop from 13 to just before the mirror point
+	      for (int col = 223; col < mirrorPoint; col++)
+	      {
+	        
+	        leftPixel = pixels[row][col];      
+	        rightPixel = pixels[row]                       
+	                         [mirrorPoint - col + mirrorPoint];
+	        rightPixel.setColor(leftPixel.getColor());
+	      }
+	    }
+  }
+  
+  public void fullRandom()
+  {
+	  Pixel [][] currentPicture = this.getPixels2D();
+	  for (Pixel [] row : currentPicture)
+	  {
+		  for(Pixel currentPixel : row)
+		  {
+			  int red = (int) (Math.random() * 256);
+			  int green = (int) (Math.random() * 256);
+			  int blue = (int) (Math.random() * 256);
+			  
+			  currentPixel.setColor(new Color(red, green, blue));
+		  }
+	  }
+  }
+  
+  
+  public void fullRandomGreen()
+  {
+	  Pixel [][] currentPicture = this.getPixels2D();
+	  for (Pixel [] row : currentPicture)
+	  {
+		  for (Pixel currentPixel : row)
+		  {
+			  int green = (int) (Math.random() * 256);
+			  
+//			  currentPixel.setColor(new Color(currentPixel.getRed(), green, currentPixel.getBlue()));
+			  currentPixel.setGreen(green);
+		  }
+	  }
+  }
+  
+  public void fullRandomRed()
+  {
+	  
+  }
+  
+ 
+  public void mirrorDiagonal()
+  {
+	  
+	  Pixel topRight = null;
+	  Pixel bottomLeft = null;
+	  
+	  Pixel [] [] pixels = this.getPixels2D();
+	  
+	  for(int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {  
+			  if(row != col && row < pixels.length && col < pixels[0].length)
+			  {
+				  topRight = pixels[row][col];
+				  bottomLeft = pixels[col][row];
+				  
+				  bottomLeft.setColor(topRight.getColor());
+			  }
+		  }
+	  }	  
+  }
+  
+  public void mirrorDiagonalUphill()
+  {
+	  Pixel topLeft = null;
+	  Pixel bottomRight = null;
+	  Pixel [][] pictureMatrix = this.getPixels2D();
+	  int shortest = Math.min(pictureMatrix.length, pictureMatrix[0].length);
+	  
+	  for(int row = 0; row < shortest; row++)
+	  {
+		  for (int col = 0; col < shortest; col++)
+		  {
+			  if(row + col != shortest -1)
+			  {
+				 topLeft = pictureMatrix[row][col];
+				 bottomRight = pictureMatrix[shortest - row - 1][shortest - col - 1];
+				 topLeft.setColor(bottomRight.getColor());
+			  }
+			  
+		  }
+	  }
+  }
+  
+  	
   
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
@@ -265,8 +394,12 @@ public class Picture extends SimplePicture
   {
     Picture beach = new Picture("beach.jpg");
     beach.explore();
-    beach.zeroBlue();
+    beach.fullRandomGreen();
     beach.explore();
   }
-  
-} // this } is the end of class Picture, put all new methods before this
+
+
+	// TODO Auto-generated method stub
+	
+}
+   // this } is the end of class Picture, put all new methods before this
