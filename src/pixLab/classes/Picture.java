@@ -137,7 +137,9 @@ public class Picture extends SimplePicture
 			  
 		  }
 	  }
+	  
   }
+  
   
   public void mirrorHorizontalBottomToTop()
   {
@@ -206,7 +208,7 @@ public class Picture extends SimplePicture
   public void mirrorGulls()
   {
 	  int mirrorPoint = 351;
-	  int mirrorPoint2 = 210;
+	  int mirrorPoint2 = 230;
 	  Pixel leftPixel = null;
 	  Pixel rightPixel = null;
 	  int count = 0;
@@ -405,12 +407,15 @@ public class Picture extends SimplePicture
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
-  public static void main(String[] args) 
+ 
+  public static void main(String[] args)
   {
-    Picture beach = new Picture("beach.jpg");
-    beach.explore();
-    beach.fullRandomGreen();
-    beach.explore();
+	  Picture Interesting = new Picture("Interesting.jpeg");
+	  Interesting.explore();
+	  Interesting.addMessage("Does this look like the face of a happy man?!", 10, 20);
+	  Interesting.addMessage("Happy Valentines day, stay single my friends!", 10, 120);
+	  Interesting.explore();
+	  Interesting.write("valentines.jpeg");
   }
 
 

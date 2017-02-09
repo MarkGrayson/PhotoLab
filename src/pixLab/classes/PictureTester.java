@@ -27,12 +27,21 @@ public class PictureTester
     caterpillar.explore();
   }
   
+  
+  
   public static void testMirrorGull()
   {
 	  Picture Gull = new Picture("seagull.jpg");
 	  Gull.explore();
 	  Gull.mirrorGulls();
 	  Gull.explore();
+	  Gull.fullRandomGreen();
+	  Gull.explore();
+	  Gull.mirrorHorizontalBottomToTop();
+	  Gull.explore();
+	  Gull.edgeDetection(12);
+	  Gull.explore();
+	
   }
   
   public static void testMirrorHorizontalBottomToTop()
@@ -114,8 +123,8 @@ public class PictureTester
     //testMirrorHorizontalBottomToTop();
     //testMirrorTemple();
     //testMirrorArms();
-    testMirrorGull();
-    testMirrorDiagonal();
+    //testMirrorGull();
+    //testMirrorDiagonal();
     //testCollage();
     //testCopy();
     //testEdgeDetection();
