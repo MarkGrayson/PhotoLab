@@ -408,14 +408,14 @@ public class Picture extends SimplePicture
    * method 
    */
  
-  public static void main(String[] args)
+  //* public static void main(String[] args)
   {
-	  Picture Interesting = new Picture("Interesting.jpeg");
-	  Interesting.explore();
-	  Interesting.addMessage("Does this look like the face of a happy man?!", 10, 20);
-	  Interesting.addMessage("Happy Valentines day, stay single my friends!", 10, 120);
-	  Interesting.explore();
-	  Interesting.write("valentines.jpeg");
+	  //Picture Interesting = new Picture("Interesting.jpeg");
+	  //Interesting.explore();
+	  //Interesting.addMessage("Does this look like the face of a happy man?!", 10, 20);
+	  //Interesting.addMessage("Happy Valentines day, stay single my friends!", 10, 120);
+	  //Interesting.explore();
+	  //Interesting.write("valentines.jpeg");
   }
 
 
