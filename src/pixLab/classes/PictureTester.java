@@ -37,12 +37,11 @@ public class PictureTester
 	  Gull.explore();
 	  Gull.mirrorDiagonalUphill();
 	  Gull.explore();
-	  Gull.fullRandomGreen();
-	  Gull.explore();
 	  Gull.mirrorHorizontalBottomToTop();
 	  Gull.explore();
 	  Gull.edgeDetection(12);
 	  Gull.explore();
+	  Gull.write("Mark Glitch.jpg");
 	  
 	
   }
