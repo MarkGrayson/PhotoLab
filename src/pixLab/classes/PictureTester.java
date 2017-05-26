@@ -42,8 +42,17 @@ public class PictureTester
 	  Gull.edgeDetection(12);
 	  Gull.explore();
 	  Gull.write("Mark Glitch.jpg");
-	  
-	
+  }
+  
+  public static void testSteganography()
+  {
+	  Picture source = new Picture("Doge.jpeg");
+	  source.explore();
+	  Picture hidden = new Picture("Harambe.jpeg");
+	  source.encode(hidden);
+	  source.explore();
+	  hidden.explore();
+	  source.decode();
   }
   
   public static void testMirrorHorizontalBottomToTop()

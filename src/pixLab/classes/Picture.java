@@ -160,6 +160,56 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  public void encode(Picture hiddenPicture)
+  {
+	  Pixel[][] currentPicture = this.getPixels2D();
+	  Pixel[][] hiddenData = hiddenPicture.getPixels2D();
+	  
+	  Pixel hiddenPixel = null;
+	  Pixel currentPixel = null;
+	  
+	  for(int row = 0; row < currentPicture.length; row++)
+	  {
+		  for(int col = 0; col < currentPicture[0].length; col++)
+		  {
+			  hiddenPixel = hiddenData[row][col];
+			  currentPixel = currentPicture[row][col];
+			  
+			  if(hiddenPixel.getRed() == 255 & hiddenPixel.getGreen() == 255 && hiddenPixel.getBlue() == 255)
+			  {
+				  int currentRed = currentPixel.getRed();
+				  if(currentRed % 2 == 0)
+				  {
+					  currentPixel.setRed(currentRed - 1);
+				  }
+			  }
+		  }
+	  }
+  
+  public void chromaKey(Color colorToClip, Picture source, int variance) 
+  {
+		Pixel[][] sourcePixels = source.getPixels2D();
+		Pixel[][] pixels = this.getPixels2D();
+
+		for (int row = 0; row < sourcePixels.length; row++) 
+		{
+			for (int col = 0; col < sourcePixels[0].length; col++)
+			{
+				Pixel pixel = sourcePixels[row][col];
+				int r = pixel.getRed();
+				int g = pixel.getGreen();
+				int b = pixel.getBlue();
+				
+				if(!(r < colorToClip.getRed() + variance && r > colorToClip.getRed() - variance &&
+						g < colorToClip.getGreen() + variance && g > colorToClip.getGreen() - variance &&
+						b < colorToClip.getBlue() + variance && b > colorToClip.getBlue() - variance))
+				{
+					pixels[row][col].setColor(pixel.getColor());
+				}
+			}
+		}
+	}
+  
   
   public void mirrorHorizontalTopToBottom()
   {
